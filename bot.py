@@ -27,7 +27,7 @@ def activate_game():
         top_windows = []
         win32gui.EnumWindows(windowEnumerationHandler, top_windows)
         for i in top_windows:
-            if "legends" in i[1].lower():
+            if "legends" in i[1].lower(): # find legends of idleon
                 print (i)
                 win32gui.ShowWindow(i[0],5)
                 win32gui.SetForegroundWindow(i[0])
@@ -94,8 +94,11 @@ def loot():
     time.sleep(0.1)
 
 def chest_deposit():
-    print("TODO")
-    #todo: code this function
+    time.sleep(0.1)
+    pyautogui.press("q") # open spell bar
+    time.sleep(0.2)
+    pyautogui.click(1723, 973) # click deposit chest
+    time.sleep(0.1)
 
 def claim_arcade():
     time.sleep(0.1)
