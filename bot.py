@@ -7,7 +7,7 @@ from pyscreeze import ImageNotFoundException
 # Functions
 def anvil_deposit():
     time.sleep(0.1)
-    pyautogui.press("c")
+    pyautogui.press("c") # codex
     time.sleep(0.1)
     pyautogui.click(1180, 200) # quick ref
     time.sleep(0.1)
@@ -97,11 +97,26 @@ def chest_deposit():
     print("TODO")
     #todo: code this function
 
+def claim_arcade():
+    time.sleep(0.1)
+    pyautogui.press("c") # open codex
+    time.sleep(0.1)
+    pyautogui.click(1180, 200) # quick ref
+    time.sleep(0.1)
+    pyautogui.click(1313, 562) # arcade
+    time.sleep(0.2)
+    pyautogui.click(1564, 70) # claim
+    time.sleep(0.1)
+    pyautogui.click(1814, 71) # exit
+    time.sleep(0.1)
 
 activate_game()
 for i in range(1,9):
     anvil_deposit()
-    loot()
+    if i == 1:
+        claim_arcade()
+    else:
+        loot()
     # Todo: create chest deposit function
     select_player(i)
     claim_afk()
