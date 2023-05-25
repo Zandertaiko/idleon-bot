@@ -1,5 +1,5 @@
 import pyautogui, sys, time
 
-
-for i in range(1,7):
-    print(i)
+time.sleep(3)
+x, y = pyautogui.locateCenterOnScreen('images/player_loc.png', confidence=0.9)
+print(x, " ", y)

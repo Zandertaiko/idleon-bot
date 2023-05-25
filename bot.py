@@ -27,7 +27,7 @@ def activate_game():
         top_windows = []
         win32gui.EnumWindows(windowEnumerationHandler, top_windows)
         for i in top_windows:
-            if "idleon" in i[1].lower():
+            if "legends" in i[1].lower():
                 print (i)
                 win32gui.ShowWindow(i[0],5)
                 win32gui.SetForegroundWindow(i[0])
@@ -39,7 +39,7 @@ def claim_afk():
     startloop_time = datetime.now()
     while True:
         try:
-            x, y = pyautogui.locateCenterOnScreen('E:/Users/The Beast/Desktop/Programmering/idleon/images/claim.png', confidence=0.8)
+            x, y = pyautogui.locateCenterOnScreen('images/claim.png', confidence=0.8) # locate claim afk gains button
             pyautogui.click(x,y)
             break
         except TypeError:
@@ -64,10 +64,10 @@ def select_player(player):
 
     time.sleep(0.1)
     if player == 1 or player == 7:
-        pyautogui.click(645, 272) # click player 1 loc
+        pyautogui.click(645, 272) # click player 1 or 7 loc (same coords, different page)
         time.sleep(0.1)
     elif player == 2 or player == 8:
-        pyautogui.click(973, 296) # click player 2 loc
+        pyautogui.click(973, 296) # click player 2 or 8 loc (same coords, different page)
         time.sleep(0.1)
     elif player == 3:
         pyautogui.click(1384, 283) # click player 3 loc
@@ -87,10 +87,10 @@ def select_player(player):
     time.sleep(0.1)
 
 def loot():
-    x, y = pyautogui.locateCenterOnScreen('E:/Users/The Beast/Desktop/Programmering/idleon/images/player_loc.png', confidence=0.9)
-    pyautogui.moveTo(x-350, y-70)
-    time.sleep(0.4)
-    pyautogui.drag(900, 0, 0.6, button='left')
+    x, y = pyautogui.locateCenterOnScreen('images/player_loc.png', confidence=0.9) # find guild tag on
+    pyautogui.moveTo(x-350, y-70) # move mouse to loot position
+    time.sleep(1) # sleep 1 sec to wait for loot
+    pyautogui.drag(900, 0, 0.6, button='left') # drag 900 pixles to the right to loot
     time.sleep(0.1)
 
 def chest_deposit():
@@ -120,6 +120,6 @@ for i in range(1,9):
     # Todo: create chest deposit function
     select_player(i)
     claim_afk()
-    if i == 6:
+    if i == 8:
         anvil_deposit()
         loot()
