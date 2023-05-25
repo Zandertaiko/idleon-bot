@@ -93,6 +93,9 @@ def loot():
     pyautogui.drag(900, 0, 0.6, button='left')
     time.sleep(0.1)
 
+def chest_deposit():
+    print("TODO")
+    #todo: code this function
 
 
 activate_game()
