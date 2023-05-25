@@ -87,7 +87,7 @@ def select_player(player):
     time.sleep(0.1)
 
 def loot():
-    x, y = pyautogui.locateCenterOnScreen('images/player_loc.png', confidence=0.9) # find guild tag on
+    x, y = pyautogui.locateCenterOnScreen('images/player_loc.png', confidence=0.9) # find guild tag
     pyautogui.moveTo(x-350, y-70) # move mouse to loot position
     time.sleep(1) # sleep 1 sec to wait for loot
     pyautogui.drag(900, 0, 0.6, button='left') # drag 900 pixles to the right to loot
@@ -96,9 +96,11 @@ def loot():
 def chest_deposit():
     time.sleep(0.1)
     pyautogui.press("q") # open spell bar
-    time.sleep(0.2)
+    time.sleep(0.3)
     pyautogui.click(1723, 973) # click deposit chest
     time.sleep(0.1)
+    pyautogui.press("q") # close spell bar
+    time.sleep(0.2)
 
 def claim_arcade():
     time.sleep(0.1)
@@ -116,11 +118,11 @@ def claim_arcade():
 activate_game()
 for i in range(1,9):
     anvil_deposit()
-    if i == 1:
+    if i == 1: # if first itteration claim arcade balls and dont loot
         claim_arcade()
     else:
         loot()
-    # Todo: create chest deposit function
+    chest_deposit()
     select_player(i)
     claim_afk()
     if i == 8:
