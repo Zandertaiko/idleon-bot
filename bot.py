@@ -49,8 +49,17 @@ def claim_afk():
                 break
             pass
 
+def claim_traps():
+    time.sleep(0.1)
+    pyautogui.press("q")
+    time.sleep(0.2)
+    pyautogui.click(1589, 968)
+    time.sleep(0.15)
+    pyautogui.click(1320, 179)
+    time.sleep(0.1)
+    pyautogui.press("esc")
+    time.sleep(0.1)
 
-    
 
 def select_player(player):
     time.sleep(0.1)
@@ -125,6 +134,9 @@ for i in range(1,9):
     chest_deposit()
     select_player(i)
     claim_afk()
+    if i == 6:
+        claim_traps()
     if i == 8:
         anvil_deposit()
         loot()
+        chest_deposit()
