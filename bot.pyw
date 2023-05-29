@@ -44,7 +44,7 @@ def claim_afk():
             break
         except TypeError:
             time_delta = datetime.now() - startloop_time
-            if time_delta.total_seconds() >= 5:
+            if time_delta.total_seconds() >= 4:
                 print("Could not find the required screen. Document creating for this order aborted")
                 break
             pass
