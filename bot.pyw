@@ -6,6 +6,11 @@ from pyscreeze import ImageNotFoundException
 # TODO: change back to maestro after cycling through all characters
 # TODO: change to full screen
 # TODO: make sure bot works if first character is selected
+# TODO: start game if not open
+# TODO: add exceptions and tighter timings
+# TODO: generalize it for other ppl to use (guild logo as player tag mainly)
+# TODO: implement minigames bot that ive been working on in another project
+# TODO: add hotkeys and exit key
 
 # Functions
 def anvil_deposit():
