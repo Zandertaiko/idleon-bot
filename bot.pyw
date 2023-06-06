@@ -3,6 +3,9 @@ import win32gui
 from datetime import datetime
 from pyscreeze import ImageNotFoundException
 
+# TODO: change back to maestro after cycling through all characters
+# TODO: change to full screen
+# TODO: make sure bot works if first character is selected
 
 # Functions
 def anvil_deposit():
@@ -39,13 +42,13 @@ def claim_afk():
     startloop_time = datetime.now()
     while True:
         try:
-            x, y = pyautogui.locateCenterOnScreen('images/claim.png', confidence=0.8) # locate claim afk gains button
+            x, y = pyautogui.locateCenterOnScreen('E:/Users/The Beast/Desktop/Programmering/idleon/images/claim.png', confidence=0.8) # locate claim afk gains button
             pyautogui.click(x,y)
             break
         except TypeError:
             time_delta = datetime.now() - startloop_time
             if time_delta.total_seconds() >= 4:
-                print("Could not find the required screen. Document creating for this order aborted")
+                # print("Could not find pic")
                 break
             pass
 
@@ -96,7 +99,7 @@ def select_player(player):
     time.sleep(0.1)
 
 def loot():
-    x, y = pyautogui.locateCenterOnScreen('images/player_loc.png', confidence=0.9) # find guild tag
+    x, y = pyautogui.locateCenterOnScreen('E:/Users/The Beast/Desktop/Programmering/idleon/images/player_loc.png', confidence=0.9) # find guild tag
     pyautogui.moveTo(x-350, y-70) # move mouse to loot position
     time.sleep(1) # sleep 1 sec to wait for loot
     pyautogui.drag(900, 0, 0.6, button='left') # drag 900 pixles to the right to loot
